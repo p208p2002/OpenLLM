@@ -79,9 +79,14 @@ You have installed Python 3.8 (or later) and `pip`. We highly recommend using a
 ### Install OpenLLM
 
 Install OpenLLM by using `pip` as follows:
-
+<!-- 
 ```bash
 pip install openllm
+``` -->
+
+```bash
+pip install openllm@v0.3.14
+pip install -U  git+https://github.com/p208p2002/OpenLLM@v0314#subdirectory=openllm-python
 ```
 
 To verify the installation, run:
