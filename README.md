@@ -86,7 +86,7 @@ pip install openllm
 
 ```bash
 pip install openllm==0.3.14
-pip install -U  git+https://github.com/p208p2002/OpenLLM@v0314#subdirectory=openllm-python
+pip install -U git+https://github.com/p208p2002/OpenLLM@v0314#subdirectory=openllm-python
 ```
 
 To verify the installation, run:
