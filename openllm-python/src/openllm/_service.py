@@ -45,7 +45,14 @@ async def generate_v1(input_dict: dict[str, t.Any]) -> openllm.GenerateOutput:
       responses = output
     if responses is None: raise ValueError("'responses' should not be None.")
   else:
-    responses = await runner.generate.async_run(qa_inputs.prompt, adapter_name=qa_inputs.adapter_name, **config)
+    # responses = await runner.generate.async_run(qa_inputs.prompt, adapter_name=qa_inputs.adapter_name, **config)
+    
+    # 用串流取代`async_run`避免未預期的生成行為
+    _out = []
+    async for output in runner.generate_iterator.async_stream(qa_inputs.prompt, adapter_name=qa_inputs.adapter_name, echo=echo, **qa_inputs.llm_config.model_dump()):
+      _out.append(output)
+    responses = ["".join(_out)]
+      
   return openllm.GenerateOutput(responses=responses, configuration=config)
 
 @svc.api(route='/v1/generate_stream', input=_JsonInput, output=bentoml.io.Text(content_type='text/event-stream'))
