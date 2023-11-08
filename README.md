@@ -1,5 +1,3 @@
-![Banner for OpenLLM](/.github/assets/main-banner.png)
-
 <!-- hatch-fancy-pypi-readme intro start -->
 
 <div align="center">
@@ -85,7 +83,7 @@ pip install openllm
 ``` -->
 
 ```bash
-pip install openllm==0.3.14
+pip install openllm-client==0.3.14 openllm-core==0.3.14
 pip install -U git+https://github.com/p208p2002/OpenLLM@v0314#subdirectory=openllm-python
 ```
 
